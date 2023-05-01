@@ -1,3 +1,4 @@
+---
 - name: Configurer le routeur et le switch
   hosts: all
   tasks:
