@@ -1,0 +1,15 @@
+---
+all:
+  children:
+    routers:
+      hosts:
+        router1:
+          ansible_host: 192.168.1.1
+          ansible_user: admin
+          ansible_password: password
+    switches:
+      hosts:
+        switch1:
+          ansible_host: 192.168.1.2
+          ansible_user: admin
+          ansible_password: password
