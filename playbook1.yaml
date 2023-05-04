@@ -1,0 +1,18 @@
+---
+- name: Configuration de base du routeur et du switch
+  hosts: routers:switches
+  gather_facts: no
+  tasks:
+    - name: Configuration de l'interface GigabitEthernet0/0
+      ios_config:
+        lines:
+          - ip address 192.168.1.10 255.255.255.0
+        parents: interface GigabitEthernet0/0
+      when: "'router1' in inventory_hostname"
+    - name: Configuration de l'interface FastEthernet0/1
+      ios_config:
+        lines:
+          - switchport mode access
+          - switchport access vlan 10
+        parents: interface FastEthernet0/1
+      when: "'switch1' in inventory_hostname"
